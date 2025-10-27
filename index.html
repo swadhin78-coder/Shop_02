@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swadhin's Shop - Grocery & More</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="./Assests/CSS/style.css">
+</head>
+<body>
+    
+    <header>
+        <div class="logo">Swadhin's Shop</div>
+        <button class="menu-btn" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </header>
+
+    <nav id="sideMenu">
+        <button class="close-btn" onclick="toggleMenu()">&times;</button>
+        <ul>
+            <li><a href="#products" onclick="toggleMenu()">🛒 Products</a></li>
+            <li><a href="#order" onclick="toggleMenu()">🧾 New Order</a></li>
+            <li><a href="#about" onclick="toggleMenu()">💡 About Us</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">📞 Contact</a></li>
+        </ul>
+
+        <div class="theme-switch-box">
+            <span>Dark Mode</span>
+            <label class="switch">
+                <input type="checkbox" id="themeToggle" onclick="toggleTheme()">
+                <span class="slider">
+                    <i class="fa-solid fa-sun sun-icon"></i>
+                    <i class="fa-solid fa-moon moon-icon"></i>
+                </span>
+            </label>
+        </div>
+        <div class="login-box">
+            <input type="password" id="ownerPass" placeholder="🔑 Owner Password">
+            <button class="btn btn-login" onclick="checkLogin()">Login</button>
+        </div>
+    </nav>
+
+    <section class="slider">
+        <div class="slides-container">
+            <div class="slide fade"><img src="./Assests/image/284-2849523_grocery-items-png-online-grocery-store-online-grocery.png" alt="Grocery Items"></div>
+            <div class="slide fade"><img src="/Assests/image/Grocery Store.jpg" alt="Store Interior"></div>
+            <div class="slide fade"><img src="./Assests/image/istockphoto-1283712032-612x612.jpg" alt="Fresh Vegetables"></div>
+            <div class="slide fade"><img src="/Assests/image/istockphoto-171302954-612x612.jpg" alt="Masala Chai Tea"></div>
+            <div class="slide fade"><img src="/Assests/image/pringles.webp" alt="Spices and Herbs"></div>
+        </div>
+        <div class="dot-navigation"></div>
+    </section>
+
+    <section class="owner-panel" id="ownerPanelSection">
+        <h2>📊 Owner Panel - Management</h2>
+        
+        <h3>➕ Add/Update Product</h3>
+        <div class="panel-controls">
+            <input type="text" id="newName" placeholder="Product Name">
+            <input type="number" id="newPrice" placeholder="Price (Tk)" min="0">
+            <input type="number" id="newQty" placeholder="Stock Qty" min="0">
+            <button class="btn btn-primary" onclick="addProduct()">➕ Add/Update Product</button>
+        </div>
+        
+        <hr class="panel-separator"> <h3>🗑 Product Deletion</h3>
+        <div class="panel-controls delete-controls">
+            <input type="text" id="deleteName" placeholder="Product Name to Delete">
+            <button class="btn btn-danger" onclick="deleteProduct()">❌ Delete Product</button>
+        </div>
+        
+    </section>
+
+    <section class="main-content">
+        <h1 id="products">🛒 Available Products</h1>
+        <div class="products-grid" id="productList">
+            </div>
+    </section>
+
+    <section class="invoice-section" id="order">
+        <h2>🧾 New Sales Order</h2>
+        <div class="invoice-container">
+            <div class="customer-info-box">
+                <input type="text" id="custName" placeholder="👤 Customer Name">
+                <input type="text" id="custNumber" placeholder="📞 Phone Number (Optional)">
+            </div>
+
+            <div id="invoiceDetails">
+                <p class="empty-cart-message">Your cart is empty. Add products to generate invoice.</p>
+            </div>
+
+            <div class="invoice-summary">
+                <p>Total Items: <span id="totalItems">0</span></p>
+                <h3>Grand Total: <span id="grandTotal">0.00 Tk</span></h3>
+            </div>
+            
+            <div class="invoice-actions">
+                <button class="btn btn-print" onclick="printInvoice()">🖨 Print Invoice</button>
+                <button class="btn btn-clear" onclick="clearCart()">🗑 Clear Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="about-card">
+            <h2>💡 About Us</h2>
+            <p>
+                Swadhin's Shop শুধু একটা দোকান নয়, এটা আপনার ভরসার নাম। 
+                আমরা সবসময় চেষ্টা করি আপনাকে সেরা মানের পণ্য সাশ্রয়ী দামে পৌঁছে দিতে। 
+            </p>
+            <div class="mission-points">
+                <h3>আমাদের লক্ষ্য:</h3>
+                <ul>
+                    <li>💎 **Quality First:** প্রতিটি প্রোডাক্ট আমরা যত্ন নিয়ে বাছাই করি।</li>
+                    <li>⚡ **Fast Service:** অল্প সময়ে আপনার দরজায় পৌঁছে দেওয়া।</li>
+                    <li>😊 **Customer Happiness:** আপনাদের সন্তুষ্টি প্রথম অগ্রাধিকার।</li>
+                </ul>
+            </div>
+            <p>
+                আমরা বিশ্বাস করি, ব্যবসা শুধু কেনাবেচা নয়, বরং আস্থার সম্পর্ক। 
+                তাই Swadhin's Shop আপনার পাশে সবসময় থাকবে—ভালো প্রোডাক্ট, ভালো দাম, আর ভালো সার্ভিস নিয়ে।
+            </p>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <h2>📞 Get in Touch</h2>
+        <div class="contact-icons">
+            <a href="mailto:swadhink2020@gmail.com" class="icon-link">
+                <i class="fa-solid fa-envelope"></i>
+                <span>Email Us</span>
+            </a>
+            <a href="tel:+8801961847110" class="icon-link">
+                <i class="fa-solid fa-phone"></i>
+                <span>Call Now</span>
+            </a>
+            <a href="#" class="icon-link" onclick="alert('Shop Location: Barguna, barishal, Bangladesh')">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Find Us</span>
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Swadhin's Shop. All Rights Reserved.</p>
+    </footer>
+
+    <script src="./Assests/JS/Index.js"></script>
+</body>
+</html>
